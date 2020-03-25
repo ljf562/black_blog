@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class=" js csstransforms3d"><head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>图片管理-PC端－首页通栏</title>
+	<link rel="stylesheet" href="/static/css/base.css">
+	<link rel="stylesheet" href="/static/css/page.css">
+	<!--[if lte IE 8]>
+	<link href="/static/css/ie8.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/main.js"></script>
+	<script type="text/javascript" src="/static/js/modernizr.js"></script>
+	<!--[if IE]>
+	<script src="http://libs.useso.com//static/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+{#    <script>#}
+{#        function update_picture(){#}
+{#        alert("hello")#}
+            {#alert(document.getElementById('#mydiv').innerHTML);#}
+{#        }#}
+{#        function openwin() {#}
+{##}
+{#    window.open("page.html","","width=200,height=200")#}
+{##}
+{#    }#}
+{#    </script>#}
+{#<script src="http://code.jquery.com/jquery-latest.js"></script>#}
+</head>
+
+<body style="background: #f6f5fa;">
+<div id="mydiv" wid></div>
+	<!--content S-->
+	<div class="super-content RightMain" id="RightMain">
+		
+		<!--header-->
+		<div class="superCtab">
+			<div class="tp-title clearfix">
+				<h3>图片管理</h3>
+				<div class="tp-mng-box clearfix">
+					<a href="javascript:;" class="tp-zdy-a sp-column"><i class="ico-zdy"></i>自定义栏目名称</a>
+					<div class="tp-zhongduan">
+						<span><a href="tupian_pc_index.html">PC端</a><i class="ico-tri"></i></span>
+						<div class="hide-zd" style="display: none;"><a href="tupian_yd_index.html">移动端</a></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="ctab-Main">
+				<div class="ctab-Main-title">
+					<ul class="clearfix">
+						<li class="cur"><a href="tupian_pc_index.html">首页通栏</a></li>
+					</ul>
+				</div>
+				
+				<div class="ctab-Mian-cont">
+					<div class="Mian-cont-btn tp-cnt-btn clearfix">
+						<div class="tp-xl-box tp-tit-kg">
+							<span>{{ cate_name.name }}<i class="ico-tri"></i></span>
+							<ul class="hide-menu">
+                            {% for cateory in categories %}
+                           <li><a href="{% url 'App:tupian_pc_index' cid=cateory.cid  %}">{{ cateory.name }}</a></li>
+                            {% endfor %}
+							</ul>
+						</div>
+					</div>
+					
+					<div class="xc-all-box clearfix">
+                        {% for article in articles %}
+						<div class="xc-list tp-list">
+							<div class="img"><a href="xiangce_Content.html"><img src="{{ article.picture }}"></a></div>
+							<div class="info clearfix">
+								<h3>标题图片</h3>
+							</div>
+                            <form action="{% url 'App:tupian_pc_index' cid=cid %}" method="post">
+							<div class="input">
+
+								<input type="text" class="txt txtbiaoti" disabled="disabled" value="{{ article.title }}" title="{{ article.title }}" style="overflow: hidden">
+								<h4>图片地址</h4>
+
+                                    {% csrf_token %}
+                                <input type="hidden" name="cid" value="{{ cid }}">
+
+                                    <input type="hidden" name="aid" value="{{ article.aid }}">
+								<input type="text" class="txt" value="{{ article.picture }}"  id="image_site" name="picture">
+
+							</div>
+                                <div class="btn clearfix"><input type="submit" class="xc-bc-a" value="保存"></div>
+                         </form>
+						</div>
+                         {% endfor %}
+						<div id="preview"></div>
+					</div>
+					
+					<!--pages S-->
+
+					<!--pages E-->
+				</div>
+			</div>
+		</div>
+		<!--main-->
+		
+	</div>
+	<!--content E-->
+	
+	<div class="layuiBg"></div><!--公共遮罩-->
+	<!--栏目管理-->
+
+	<!--栏目管理－修改-->
+
+
+
+<script type="text/javascript" src="/static/js/zxxFile.js"></script>
+
+
+</body></html>

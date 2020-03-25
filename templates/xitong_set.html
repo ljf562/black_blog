@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class=" js csstransforms3d"><head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>系统设置</title>
+	<link rel="stylesheet" href="/static/css/base.css">
+	<link rel="stylesheet" href="/static/css/page.css">
+	<!--[if lte IE 8]>
+	<link href="/static/css/ie8.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/main.js"></script>
+	<script type="text/javascript" src="/static/js/modernizr.js"></script>
+	<!--[if IE]>
+	<script src="http://libs.useso.com//static/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+
+<body style="background: #f6f5fa;">
+
+	<!--content S-->
+	<div class="super-content">
+		<div class="superCtab">
+			<div class="ctab-title zxtop-title clearfix"><h3>系统设置</h3></div>
+		</div>
+		
+		<div class="publishArt">
+			<div class="pubMain">
+				<!--上传 S-->
+				<!--上传 E-->
+                <form action="{% url 'App:xitong_set' %}" method="post">
+                    {% csrf_token %}
+				<div class="pub-txt-bar" style="padding: 50px 20px 10px">
+					用 &nbsp; &nbsp;户&nbsp;&nbsp; ：<input type="text" class="shuruTxt" name="username"><br>
+                    初始密码：<input type="text" class="shuruTxt" name="password">
+				</div>
+
+
+				<div class="pub-btn">
+					<input type="submit" id="" value="增加管理员" class="saveBtn">
+				</div>
+                </form>
+			</div>
+		</div>
+	
+		<!--main-->
+	</div>
+	<!--content E-->
+	
+
+
+
+</body></html>
